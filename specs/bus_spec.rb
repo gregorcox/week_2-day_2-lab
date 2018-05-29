@@ -6,8 +6,9 @@ require("minitest/rg")
 class BusTest < MiniTest::Test
 
   def setup
-    # bus1 = Bus.new(22, "Leith", [])
     @passenger1 = Person.new("John", 30)
+    @passenger2 = Person.new("Tony", 30)
+    @bus1 = Bus.new(22, "Leith", [@passenger1,@passenger2])
   end
 
 
@@ -33,6 +34,11 @@ class BusTest < MiniTest::Test
     bus = Bus.new(22, "Leith", [@passenger1])
     bus.drop_off(@passenger1)
     assert_equal(0, bus.number_of_passengers())
+  end
+
+  def test_empty_bus
+    @bus1.empty_bus
+    assert_equal(0, @bus1.number_of_passengers())
   end
 
 
