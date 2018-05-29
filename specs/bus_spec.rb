@@ -10,7 +10,11 @@ class BusTest < MiniTest::Test
     bus = Bus.new(22, "Leith", [])
     assert_equal("Brum Brum", bus.drive())
   end
-  
+
+  def test_number_of_passengers
+    bus = Bus.new(22, "Leith", ["John"])
+    assert_equal(1, bus.number_of_passengers())
+  end
 
 
 
